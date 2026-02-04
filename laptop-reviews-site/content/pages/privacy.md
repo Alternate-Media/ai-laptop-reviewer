@@ -1,6 +1,6 @@
 ---
 title: "Privacy Policy"
-date: 2026-02-05T00:00:00Z
+date: 2026-02-01T00:00:00Z
 draft: false
 description: "How we handle data at Laptop Verdict."
 ---

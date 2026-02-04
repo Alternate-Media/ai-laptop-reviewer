@@ -1,6 +1,6 @@
 ---
 title: "The Laptop Verdict Methodology"
-date: 2026-02-05T00:00:00Z
+date: 2026-02-01T00:00:00Z
 draft: false
 description: "How we cut through the hype using SKU forensics and the Hierarchy of Trust."
 ---

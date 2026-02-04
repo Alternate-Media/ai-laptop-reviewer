@@ -1,6 +1,6 @@
 ---
 title: "About Laptop Verdict"
-date: 2026-02-05T00:00:00Z
+date: 2026-02-01T00:00:00Z
 draft: false
 description: "Cynical, technical, and brutally honest."
 ---

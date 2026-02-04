@@ -13,6 +13,11 @@ description = "Run the Hugo development server"
 dir = "laptop-reviews-site"
 run = "hugo server -D"
 
+[tasks."test:ui"]
+description = "Run automated UI tests with Playwright"
+dir = "laptop-reviews-site"
+run = "npx playwright test"
+
 [tasks."test:sanity-plus"]
 description = "Enhanced sanity tests using httpie-go (ht)"
 depends = ["site:build"]
@@ -38,10 +43,10 @@ grep -q "Sources" temp_report.html && echo "✓ Section: Sources Found"
 
 echo "--- 3. Navigation Integrity ---"
 ht --check-status GET $REPORT_URL | grep -q "Home" && echo "✓ Back-to-home Link Found"
-ht --check-status GET http://127.0.0.1:1313/ | grep -q "/methodology/" && echo "✓ Methodology Link Found"
-ht --check-status GET http://127.0.0.1:1313/ | grep -q "/about/" && echo "✓ About Link Found"
-ht --check-status GET http://127.0.0.1:1313/ | grep -q "/privacy/" && echo "✓ Privacy Link Found"
-ht --check-status GET http://127.0.0.1:1313/ | grep -q "/terms/" && echo "✓ Terms Link Found"
+ht --check-status GET http://127.0.0.1:1313/ | grep -q "/pages/methodology/" && echo "✓ Methodology Link Found"
+ht --check-status GET http://127.0.0.1:1313/ | grep -q "/pages/about/" && echo "✓ About Link Found"
+ht --check-status GET http://127.0.0.1:1313/ | grep -q "/pages/privacy/" && echo "✓ Privacy Link Found"
+ht --check-status GET http://127.0.0.1:1313/ | grep -q "/pages/terms/" && echo "✓ Terms Link Found"
 
 echo "--- 4. Optimization ---"
 ht GET http://127.0.0.1:1313/ | grep -q "css/main.min" && echo "✓ Fingerprinted CSS Found"

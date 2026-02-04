@@ -1,6 +1,7 @@
 {{ define "main" }}
 <article class="bg-white min-h-screen">
-    {{/* Article Header */}}
+    {{ if eq .Section "posts" }}
+    {{/* Review Post Header */}}
     <header class="bg-slate-900 text-white py-20 px-4">
         <div class="container mx-auto max-w-4xl">
             <div class="flex items-center space-x-2 mb-6">
@@ -12,13 +13,25 @@
             </h1>
         </div>
     </header>
+    {{ else }}
+    {{/* Standard Page Header */}}
+    <header class="bg-slate-50 border-b border-slate-200 py-20 px-4">
+        <div class="container mx-auto max-w-4xl">
+            <h1 class="text-5xl md:text-6xl font-black tracking-tightest uppercase">{{ .Title }}</h1>
+            {{ if .Params.description }}
+            <p class="text-xl text-slate-500 mt-4 font-semibold italic">{{ .Params.description }}</p>
+            {{ end }}
+        </div>
+    </header>
+    {{ end }}
 
     {{/* Main Content Area */}}
     <div class="container mx-auto max-w-4xl px-4 py-16">
         
-        {{ partial "verdict-box.html" . }}
-        
-        {{ partial "spec-sheet.html" . }}
+        {{ if eq .Section "posts" }}
+            {{ partial "verdict-box.html" . }}
+            {{ partial "spec-sheet.html" . }}
+        {{ end }}
 
         <div class="prose prose-slate prose-lg max-w-none 
                     prose-headings:font-black prose-headings:tracking-tight prose-headings:uppercase
@@ -28,14 +41,14 @@
             {{ .Content }}
         </div>
 
-        {{/* Share / Footer Section of Content */}}
+        {{/* Footer Navigation */}}
         <div class="mt-20 pt-10 border-t-2 border-slate-900">
             <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
                 <div class="text-xs font-bold uppercase tracking-[0.3em] text-slate-400">
-                    End of Verified Truth Report
+                    Laptop Verdict Research
                 </div>
                 <div class="flex space-x-4">
-                    <a href="{{ "/posts/" | relURL }}" class="bg-slate-100 px-6 py-3 rounded text-sm font-bold hover:bg-slate-200 transition-colors uppercase">Back to Archives</a>
+                    <a href="{{ .Site.BaseURL | relURL }}" class="bg-slate-100 px-6 py-3 rounded text-sm font-bold hover:bg-slate-200 transition-colors uppercase italic">Back to Truth Factory</a>
                 </div>
             </div>
         </div>
