@@ -14,6 +14,11 @@ For a high-level summary of the project goals and tech stack, see [README.md](RE
 - [x] **Automated Sanity Testing**: Implemented `test:sanity-plus` suite using `httpie-go` and `mise` tasks.
 - [x] **Technical Archetype**: Create a specialized Hugo archetype (`archetypes/review.md`) with strictly typed frontmatter for TDP, PL1/PL2, Panel PWM, and SKU verification status.
 - [x] **Design Tokens & UI Kit**: Formalize the Tailwind v4 `@theme` variables for the "Truth Factory" aesthetic and build reusable partials for "The Verdict" and "Spec Sheet" components.
+- [ ] **Common Pages**: Implement the "Methodology" (explaining the Hierarchy of Trust) and "About" pages using the design system.
+- [ ] **UI Design Decisions**: Formalize a "Style Guide" partial or documentation covering button states, card behaviors, and typography scales.
+- [ ] **Asset Strategy**: Define a structured directory for hardware photos (`/static/images/hardware/`) and implement a "Placeholder Asset" policy for AI-generated reports.
+- [ ] **CI/CD Strategy Iteration**: Evaluate and select between GitHub Actions (native), CircleCI, or other providers for automated building and deployment.
+- [ ] **GitHub Pages Deployment**: Configure the repository for automated deployment to GitHub Pages via the selected CI.
 - [ ] **Agent Orchestration Protocol**: Define the execution flow where the `hugo-operations` agent calls the `laptop-reviewer` agent, including error-handling for insufficient research data.
 - [ ] **Data Sourcing Protocol**: Formalize how agents ingest and weigh technical data from trusted sources (Notebookcheck, PSREF, etc.) to ensure data provenance.
 
