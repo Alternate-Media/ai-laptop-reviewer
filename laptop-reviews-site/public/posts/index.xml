@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Laptop Verdict</title>
+    <link>http://localhost:1313/posts/</link>
+    <description>Recent content in Posts on Laptop Verdict</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 01 Feb 2026 12:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The Gold Standard: ThinkPad Z13 Gen 2 Truth Report</title>
+      <link>http://localhost:1313/posts/gold-standard-review/</link>
+      <pubDate>Sun, 01 Feb 2026 12:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/gold-standard-review/</guid>
+      <description>&lt;h1 id=&#34;the-verdict-tldr&#34;&gt;The Verdict (TL;DR)&lt;/h1&gt;&#xA;&lt;p&gt;The Z13 Gen 2 is a high-quality niche tool hampered by Lenovo&amp;rsquo;s aggressive thermal management and a controversial haptic trackpad. It&amp;rsquo;s a pro machine, but not for everyone.&lt;/p&gt;&#xA;&lt;h1 id=&#34;differentiation-factors&#34;&gt;Differentiation Factors&lt;/h1&gt;&#xA;&lt;p&gt;The only 13-inch laptop with a haptic TrackPoint that actually feels responsive after the 1.05 BIOS update.&lt;/p&gt;&#xA;&lt;h1 id=&#34;raw-specs&#34;&gt;Raw Specs&lt;/h1&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;CPU&lt;/strong&gt;: AMD Ryzen 7 PRO 7840U&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;GPU&lt;/strong&gt;: Radeon 780M (Integrated)&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;RAM&lt;/strong&gt;: 32GB LPDDR5x (Soldered)&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Storage&lt;/strong&gt;: 1TB NVMe Gen4 (M.2 2242)&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h1 id=&#34;the-good-validated&#34;&gt;The Good (Validated)&lt;/h1&gt;&#xA;&lt;p&gt;Sustained 25W TDP in &amp;ldquo;Performance&amp;rdquo; mode with surprisingly low fan pitch. Build rigidity is exceptional with zero chassis flex.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
