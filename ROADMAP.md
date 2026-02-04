@@ -1,6 +1,6 @@
-# Project Roadmap: AI Laptop Reviewer
+# Project Roadmap: Laptop Verdict
 
-This document outlines the strategic direction and development phases for the AI Laptop Reviewer project.
+This document outlines the strategic direction and development phases for the Laptop Verdict project.
 
 ## Project Overview
 For a high-level summary of the project goals and tech stack, see [README.md](README.md).

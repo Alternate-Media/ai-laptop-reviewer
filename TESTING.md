@@ -1,4 +1,4 @@
-# Automated Testing Strategy: AI Laptop Reviewer
+# Automated Testing Strategy: Laptop Verdict
 
 To maintain the "Anti-Hype" standard of technical excellence, this project employs a multi-layered testing strategy.
 

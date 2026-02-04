@@ -1,4 +1,4 @@
-# Laptop Reviews Site
+# Laptop Verdict
 
 Technical, "Anti-Hype" laptop reviews for professionals and creatives.
 

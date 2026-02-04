@@ -1,6 +1,6 @@
 baseURL = 'https://example.org/'
 languageCode = 'en-us'
-title = 'Laptop Reviews - The Anti-Hype Truth'
+title = 'Laptop Verdict'
 
 [module]
   [[module.mounts]]
