@@ -1,0 +1,8 @@
+public/
+resources/
+_gen/
+assets/js/bundle.js
+assets/js/bundle.js.map
+.DS_Store
+.hugo_build.lock
+results.xml
