@@ -19,6 +19,7 @@ For a high-level summary of the project goals and tech stack, see [README.md](RE
 - [x] **Common Pages**: Implement the "Methodology", "About", "Privacy Policy", and "Terms of Service" pages using the design system.
 - [x] **UI Design Decisions**: Formalize a "Style Guide" partial or documentation covering button states, card behaviors, and typography scales.
 - [x] **Automated UI Testing**: Integrated Playwright for smoke testing branding and navigation.
+- [x] **Automated Code/Prose Quality**: Implemented pre-commit hooks for spelling (codespell), formatting (prettier), and structural sanity.
 - [x] **Asset Strategy**: Define a structured directory for hardware photos (`/static/images/`). **Policy**: Posts may only use verified infographics or authentic hardware photography. AI-generated product images are strictly forbidden.
 - [x] **CI/CD Strategy Iteration**: Local build emulation using `mise ci` task. Future path defined: Gitea Actions or Jenkins.
 - [x] **GitHub Pages / Gitea Pages Deployment**: Configured `site:deploy` task for local-build-then-push deployment with live verification.
