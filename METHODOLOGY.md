@@ -24,3 +24,12 @@ We weight our analysis based on the specific expertise of technical entities:
 To maintain technical integrity and avoid the misleading artifacts of generative AI:
 - **Forbidden**: AI-generated product images or conceptual renders.
 - **Mandatory**: Authentic hardware photography or verified technical infographics.
+
+### Asset Organization
+- `/static/images/`: Authentic hardware photos (flat structure).
+- `/static/images/infographics/`: Technical charts and data visualizations.
+- `/static/images/stock/`: Non-hardware generic imagery (icons, UI elements).
+
+### Naming Convention
+- Hardware: `brand-model-sku-angle.jpg` (e.g., `lenovo-z13-gen2-top.jpg`)
+- Infographics: `brand-model-metric.png` (e.g., `apple-m3-sustained-tgp.png`)
