@@ -16,3 +16,4 @@
 
 ### 3. General
 - NO file operations allowed without user confirmation - NO EXCEPTIONS.
+- **Roadmap Synchronization**: Every feature implementation or significant technical change MUST include a corresponding update to `ROADMAP.md` in the same commit.

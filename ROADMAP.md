@@ -13,7 +13,7 @@ For a high-level summary of the project goals and tech stack, see [README.md](RE
 - [x] **Documentation**: Baseline `README.md`, `AGENTS.md`, and `TESTING.md` established.
 - [x] **Automated Sanity Testing**: Implemented `test:sanity-plus` suite using `httpie-go` and `mise` tasks.
 - [x] **Technical Archetype**: Create a specialized Hugo archetype (`archetypes/review.md`) with strictly typed frontmatter for TDP, PL1/PL2, Panel PWM, and SKU verification status.
-- [ ] **Design Tokens & UI Kit**: Formalize the Tailwind v4 `@theme` variables for the "Truth Factory" aesthetic and build reusable partials for "The Verdict" and "Spec Sheet" components.
+- [x] **Design Tokens & UI Kit**: Formalize the Tailwind v4 `@theme` variables for the "Truth Factory" aesthetic and build reusable partials for "The Verdict" and "Spec Sheet" components.
 - [ ] **Agent Orchestration Protocol**: Define the execution flow where the `hugo-operations` agent calls the `laptop-reviewer` agent, including error-handling for insufficient research data.
 - [ ] **Data Sourcing Protocol**: Formalize how agents ingest and weigh technical data from trusted sources (Notebookcheck, PSREF, etc.) to ensure data provenance.
 

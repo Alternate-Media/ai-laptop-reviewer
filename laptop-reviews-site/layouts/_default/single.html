@@ -10,16 +10,16 @@
             <h1 class="text-5xl md:text-6xl font-extrabold tracking-tight mb-6 leading-tight">
                 {{ .Title }}
             </h1>
-            {{ if .Params.description }}
-            <p class="text-xl text-slate-300 italic border-l-4 border-indigo-500 pl-6 py-2">
-                {{ .Params.description }}
-            </p>
-            {{ end }}
         </div>
     </header>
 
     {{/* Main Content Area */}}
     <div class="container mx-auto max-w-4xl px-4 py-16">
+        
+        {{ partial "verdict-box.html" . }}
+        
+        {{ partial "spec-sheet.html" . }}
+
         <div class="prose prose-slate prose-lg max-w-none 
                     prose-headings:font-black prose-headings:tracking-tight prose-headings:uppercase
                     prose-h1:text-indigo-600 prose-h2:border-b-2 prose-h2:border-slate-900 prose-h2:pb-2
