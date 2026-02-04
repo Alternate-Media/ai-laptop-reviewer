@@ -1,5 +1,16 @@
 import { test, expect } from '@playwright/test';
 
+test.beforeEach(async ({ page }) => {
+  page.on('console', msg => {
+    if (msg.type() === 'error') {
+      throw new Error(`Console error detected: ${msg.text()}`);
+    }
+  });
+  page.on('pageerror', error => {
+    throw new Error(`Page error detected: ${error.message}`);
+  });
+});
+
 test('homepage has correct branding', async ({ page }) => {
   await page.goto('/');
   await expect(page).toHaveTitle(/Laptop Verdict/);
