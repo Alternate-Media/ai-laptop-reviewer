@@ -11,21 +11,21 @@ test.beforeEach(async ({ page }) => {
   });
 });
 
-test("homepage has correct branding", async ({ page }) => {
-  await page.goto("/");
+test('homepage has correct branding', async ({ page }) => {
+  await page.goto('/ai-laptop-reviewer/');
   await expect(page).toHaveTitle(/Laptop Verdict/);
-  await expect(page.locator("text=Laptops, Unmasked.")).toBeVisible();
+  await expect(page.locator('text=Laptops, Unmasked.')).toBeVisible();
 });
 
-test("navigation to about page works", async ({ page }) => {
-  await page.goto("/");
-  await page.click("text=About");
+test('navigation to about page works', async ({ page }) => {
+  await page.goto('/ai-laptop-reviewer/');
+  await page.click('text=About');
   await expect(page).toHaveURL(/\/pages\/about\//);
-  await expect(page.locator("h1")).toContainText("About Laptop Verdict");
+  await expect(page.locator('h1')).toContainText('About Laptop Verdict');
 });
 
 test("methodology page displays hierarchy of trust", async ({ page }) => {
-  await page.goto("/pages/methodology/");
+  await page.goto("/ai-laptop-reviewer/pages/methodology/");
   await expect(
     page.locator('h2:has-text("The Hierarchy of Trust")'),
   ).toBeVisible();

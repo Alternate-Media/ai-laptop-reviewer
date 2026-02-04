@@ -8,7 +8,7 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
   reporter: [["html", { open: "never" }]],
   use: {
-    baseURL: "http://127.0.0.1:1313/",
+    baseURL: "http://127.0.0.1:1313/ai-laptop-reviewer/",
     trace: "on-first-retry",
     screenshot: "on",
   },
@@ -19,9 +19,8 @@ export default defineConfig({
     },
   ],
   webServer: {
-    command:
-      "hugo server -D -p 1313 --bind 127.0.0.1 -b http://localhost:1313/",
-    url: "http://127.0.0.1:1313/",
+    command: "mkdir -p temp_root/ai-laptop-reviewer && cp -r public/* temp_root/ai-laptop-reviewer/ && python3 -m http.server 1313 --bind 127.0.0.1 --directory temp_root",
+    url: "http://127.0.0.1:1313/ai-laptop-reviewer/",
     reuseExistingServer: !process.env.CI,
     cwd: "./",
   },

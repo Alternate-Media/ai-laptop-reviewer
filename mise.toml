@@ -61,13 +61,16 @@ description = "Run Lighthouse performance audit"
 run = """
 #!/usr/bin/env bash
 cd laptop-reviews-site
-hugo server -D -p 1313 --bind 127.0.0.1 &
+# Serve production files from subdirectory
+mkdir -p temp_root/ai-laptop-reviewer
+cp -r public/* temp_root/ai-laptop-reviewer/
+python3 -m http.server 1313 --bind 127.0.0.1 --directory temp_root &
 PID=$!
-trap "kill $PID" EXIT
+trap "kill $PID; rm -rf temp_root" EXIT
 sleep 5
 
 echo "--- Running Lighthouse Audit ---"
-npx lighthouse http://127.0.0.1:1313/ --quiet --chrome-flags="--headless" --only-categories=performance,accessibility,best-practices,seo --output=json --output-path=./lighthouse-report.json
+npx lighthouse http://127.0.0.1:1313/ai-laptop-reviewer/ --quiet --chrome-flags="--headless" --only-categories=performance,accessibility,best-practices,seo --output=json --output-path=./lighthouse-report.json
 
 echo "--- Results ---"
 jq -r '.categories | to_entries[] | "\\(.key): \\(.value.score * 100)"' ./lighthouse-report.json
@@ -91,17 +94,20 @@ depends = ["site:build"]
 run = """
 #!/usr/bin/env bash
 cd laptop-reviews-site
-hugo server -D -p 1313 --bind 127.0.0.1 -b http://localhost:1313/ &
+# Create a temporary symlink to mimic subdirectory hosting locally
+mkdir -p temp_root/ai-laptop-reviewer
+cp -r public/* temp_root/ai-laptop-reviewer/
+python3 -m http.server 1313 --bind 127.0.0.1 --directory temp_root &
 PID=$!
-trap "kill $PID" EXIT
+trap "kill $PID; rm -rf temp_root" EXIT
 sleep 3
 
 echo "--- 1. Discovery & SEO ---"
-ht -h --check-status GET http://127.0.0.1:1313/index.xml | grep -q "<link>" && echo "✓ RSS Feed Valid"
-ht -h --check-status GET http://127.0.0.1:1313/sitemap.xml | grep -q "<loc>" && echo "✓ Sitemap Valid"
+ht -h --check-status GET http://127.0.0.1:1313/ai-laptop-reviewer/index.xml | grep -q "<link>" && echo "✓ RSS Feed Valid"
+ht -h --check-status GET http://127.0.0.1:1313/ai-laptop-reviewer/sitemap.xml | grep -q "<loc>" && echo "✓ Sitemap Valid"
 
 echo "--- 2. Content Standards (Gold Standard) ---"
-REPORT_URL="http://127.0.0.1:1313/posts/gold-standard-review/"
+REPORT_URL="http://127.0.0.1:1313/ai-laptop-reviewer/posts/gold-standard-review/"
 ht -b GET $REPORT_URL > temp_report.html
 grep -qi "prose" temp_report.html && echo "✓ Tailwind Prose Applied"
 grep -q "The Verdict (TL;DR)" temp_report.html && echo "✓ Section: Verdict Found"
@@ -110,17 +116,16 @@ grep -q "Sources" temp_report.html && echo "✓ Section: Sources Found"
 
 echo "--- 3. Navigation Integrity ---"
 ht -b GET $REPORT_URL | grep -q "Home" && echo "✓ Back-to-home Link Found"
-ht -h --check-status GET http://127.0.0.1:1313/pages/about/ > /dev/null && echo "✓ About Page Active"
-ht -h --check-status GET http://127.0.0.1:1313/pages/methodology/ > /dev/null && echo "✓ Methodology Page Active"
-ht -h --check-status GET http://127.0.0.1:1313/pages/privacy/ > /dev/null && echo "✓ Privacy Page Active"
-ht -h --check-status GET http://127.0.0.1:1313/pages/terms/ > /dev/null && echo "✓ Terms Page Active"
+ht -h --check-status GET http://127.0.0.1:1313/ai-laptop-reviewer/pages/about/ > /dev/null && echo "✓ About Page Active"
+ht -h --check-status GET http://127.0.0.1:1313/ai-laptop-reviewer/pages/methodology/ > /dev/null && echo "✓ Methodology Page Active"
+ht -h --check-status GET http://127.0.0.1:1313/ai-laptop-reviewer/pages/privacy/ > /dev/null && echo "✓ Privacy Page Active"
+ht -h --check-status GET http://127.0.0.1:1313/ai-laptop-reviewer/pages/terms/ > /dev/null && echo "✓ Terms Page Active"
 
 echo "--- 4. Optimization ---"
-ht -b GET http://127.0.0.1:1313/ | grep -q "css/main.min" && echo "✓ Fingerprinted CSS Found"
+ht -b GET http://127.0.0.1:1313/ai-laptop-reviewer/ | grep -q "css/main.min" && echo "✓ Fingerprinted CSS Found"
 
 echo "--- 5. Error Handling ---"
-# Verify 404 status (Hugo server returns 404 for missing files)
-ht -h GET http://127.0.0.1:1313/non-existent-page/ | grep -q "404" || echo "✓ 404 Logic Verified"
+ht -h GET http://127.0.0.1:1313/ai-laptop-reviewer/non-existent-page/ 2>&1 | grep -q "404" && echo "✓ 404 Status Verified"
 
 rm temp_report.html
 """

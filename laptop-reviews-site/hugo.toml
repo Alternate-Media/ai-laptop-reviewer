@@ -1,8 +1,8 @@
 baseURL = 'https://alternate-media.github.io/ai-laptop-reviewer/'
 languageCode = 'en-us'
 title = 'Laptop Verdict'
-canonifyURLs = true
-relativeURLs = true
+canonifyURLs = false
+relativeURLs = false
 
 [module]
 
