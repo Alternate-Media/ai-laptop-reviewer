@@ -36,6 +36,8 @@ description = ""
   trusted_sources = [] 
 +++
 
+{{/* VISUAL ASSET POLICY: Only use verified infographics or authentic hardware photography. AI-generated product images are FORBIDDEN. */}}
+
 # The Verdict (TL;DR)
 
 # Differentiation Factors

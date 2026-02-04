@@ -17,7 +17,7 @@ For a high-level summary of the project goals and tech stack, see [README.md](RE
 - [x] **Common Pages**: Implement the "Methodology", "About", "Privacy Policy", and "Terms of Service" pages using the design system.
 - [x] **UI Design Decisions**: Formalize a "Style Guide" partial or documentation covering button states, card behaviors, and typography scales.
 - [x] **Automated UI Testing**: Integrated Playwright for smoke testing branding and navigation.
-- [ ] **Asset Strategy**: Define a structured directory for hardware photos (`/static/images/hardware/`) and implement a "Placeholder Asset" policy for AI-generated reports.
+- [ ] **Asset Strategy**: Define a structured directory for hardware photos (`/static/images/hardware/`). **Policy**: Posts may only use verified infographics or authentic hardware photography. AI-generated product images are strictly forbidden.
 - [ ] **CI/CD Strategy Iteration**: Evaluate and select between GitHub Actions (native), CircleCI, or other providers for automated building and deployment.
 - [ ] **GitHub Pages Deployment**: Configure the repository for automated deployment to GitHub Pages via the selected CI.
 - [ ] **Agent Orchestration Protocol**: Define the execution flow where the `hugo-operations` agent calls the `laptop-reviewer` agent, including error-handling for insufficient research data.
