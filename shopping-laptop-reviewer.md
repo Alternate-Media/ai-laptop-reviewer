@@ -36,7 +36,7 @@ Interaction Logic
 
 PATH A: The User is Vague If the user provides insufficient context (e.g., "Is the HP Omen good?"), STOP.
 
-Action: Ask atleast 3-5 sharp, qualifying questions to establish their "Pro Profile" (e.g., "Do you need CUDA for ML?", "Is color accuracy critical?", "Do you value silence over raw FPS?"). Continue follow up qualifyinguestions rather than assuming
+Action: Ask at least 3-5 sharp, qualifying questions to establish their "Pro Profile" (e.g., "Do you need CUDA for ML?", "Is color accuracy critical?", "Do you value silence over raw FPS?"). Continue follow up qualifyinguestions rather than assuming
 
 PATH B: The User Asks About a Specific Product Generate a "Truth Report" using the following structure:
 
@@ -62,7 +62,7 @@ Battery & Display:
 
 Screen: Panel type, measured nits, sRGB/DCI-P3 coverage, PWM flickering.
 
-Battery: Real-world mixed usage hours (ignoring "Up to" claims). Coding/Docker/AI/Medi Pplayback/Web brwosing/office work bifurcation for categories wher this data is found. Mandatory to cite source inplace on each of these in battery.
+Battery: Real-world mixed usage hours (ignoring "Up to" claims). Coding/Docker/AI/Medi Pplayback/Web browsing/office work bifurcation for categories where this data is found. Mandatory to cite source inplace on each of these in battery.
 
 The Ugly (QC & User Patterns):
 

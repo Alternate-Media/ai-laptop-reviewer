@@ -1,8 +1,3 @@
-[tools]
-hugo-extended = "latest"
-node = "22"
-httpie-go = "latest"
-
 [tasks.ci]
 description = "Emulate full CI pipeline locally"
 run = [
@@ -64,6 +59,35 @@ ht -b GET "$LIVE_URL/" | grep -q "css/main.min" && echo "✓ Fingerprinted CSS F
 rm temp_report_live.html
 """
 
+[tasks."test:lighthouse"]
+description = "Run Lighthouse performance audit"
+run = """
+#!/usr/bin/env bash
+cd laptop-reviews-site
+hugo server -D -p 1313 --bind 127.0.0.1 &
+PID=$!
+trap "kill $PID" EXIT
+sleep 5
+
+echo "--- Running Lighthouse Audit ---"
+npx lighthouse http://127.0.0.1:1313/ --quiet --chrome-flags="--headless" --only-categories=performance,accessibility,best-practices,seo --output=json --output-path=./lighthouse-report.json
+
+echo "--- Results ---"
+jq -r '.categories | to_entries[] | "\\(.key): \\(.value.score * 100)"' ./lighthouse-report.json
+
+# Check for scores below thresholds
+# Performance threshold 85 (local dev), others 90
+FAIL_CATEGORIES=$(jq -r '.categories[] | select((.id == "performance" and .score < 0.85) or (.id != "performance" and .score < 0.9)) | "\\(.title): \\(.score * 100)"' ./lighthouse-report.json)
+
+if [ -n "$FAIL_CATEGORIES" ]; then
+  echo "❌ Some categories failed the 90+ threshold:"
+  echo "$FAIL_CATEGORIES"
+  exit 1
+else
+  echo "✅ All scores are 90 or above."
+fi
+"""
+
 [tasks."test:sanity-plus"]
 description = "Enhanced sanity tests using httpie-go (ht)"
 depends = ["site:build"]
@@ -109,31 +133,9 @@ description = "Run automated UI tests with Playwright"
 dir = "laptop-reviews-site"
 run = "npx playwright test"
 
-[tasks."test:lighthouse"]
-description = "Run Lighthouse performance audit"
-run = """
-#!/usr/bin/env bash
-cd laptop-reviews-site
-hugo server -D -p 1313 --bind 127.0.0.1 &
-PID=$!
-trap "kill $PID" EXIT
-sleep 5
-
-echo "--- Running Lighthouse Audit ---"
-npx lighthouse http://127.0.0.1:1313/ --quiet --chrome-flags="--headless" --only-categories=performance,accessibility,best-practices,seo --output=json --output-path=./lighthouse-report.json
-
-echo "--- Results ---"
-jq -r '.categories | to_entries[] | "\\(.key): \\(.value.score * 100)"' ./lighthouse-report.json
-
-# Check for scores below thresholds
-# Performance threshold 85 (local dev), others 90
-FAIL_CATEGORIES=$(jq -r '.categories[] | select((.id == "performance" and .score < 0.85) or (.id != "performance" and .score < 0.9)) | "\\(.title): \\(.score * 100)"' ./lighthouse-report.json)
-
-if [ -n "$FAIL_CATEGORIES" ]; then
-  echo "❌ Some categories failed the 90+ threshold:"
-  echo "$FAIL_CATEGORIES"
-  exit 1
-else
-  echo "✅ All scores are 90 or above."
-fi
-"""
+[tools]
+hugo-extended = "latest"
+node = "22"
+httpie-go = "latest"
+pre-commit = "latest"
+vale = "latest"

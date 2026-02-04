@@ -1,49 +1,86 @@
 {{ define "main" }}
 <section class="bg-white border-b border-slate-200 py-20 px-4">
-    <div class="container mx-auto max-w-5xl">
-        <div class="text-center">
-            <span class="inline-block bg-indigo-100 text-indigo-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest mb-4">Anti-Hype Protocol Active</span>
-            <h1 class="text-6xl md:text-7xl font-extrabold text-slate-900 tracking-tightest mb-6">
-                Laptops, <span class="text-indigo-600">Unmasked.</span>
-            </h1>
-            <p class="text-xl md:text-2xl text-slate-600 max-w-3xl mx-auto leading-relaxed mb-10">
-                Technical, cynical, and brutally honest reviews for professionals who value 
-                sustained stability over marketing fluff.
-            </p>
-            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
-                <a href="#latest" class="bg-indigo-600 text-white px-8 py-4 rounded font-bold shadow-lg hover:bg-indigo-700 transition-all">Read Latest Reports</a>
-                <a href="{{ "/roadmap/" | relURL }}" class="bg-white border border-slate-300 text-slate-700 px-8 py-4 rounded font-bold hover:bg-slate-50 transition-all">Our Methodology</a>
-            </div>
-        </div>
+  <div class="container mx-auto max-w-5xl">
+    <div class="text-center">
+      <span
+        class="inline-block bg-indigo-100 text-indigo-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest mb-4"
+        >Anti-Hype Protocol Active</span
+      >
+      <h1
+        class="text-6xl md:text-7xl font-extrabold text-slate-900 tracking-tightest mb-6"
+      >
+        Laptops, <span class="text-indigo-600">Unmasked.</span>
+      </h1>
+      <p
+        class="text-xl md:text-2xl text-slate-600 max-w-3xl mx-auto leading-relaxed mb-10"
+      >
+        Technical, cynical, and brutally honest reviews for professionals who
+        value sustained stability over marketing fluff.
+      </p>
+      <div
+        class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4"
+      >
+        <a
+          href="#latest"
+          class="bg-indigo-600 text-white px-8 py-4 rounded font-bold shadow-lg hover:bg-indigo-700 transition-all"
+          >Read Latest Reports</a
+        >
+        <a
+          href="{{ '/pages/methodology/' | relURL }}"
+          class="bg-white border border-slate-300 text-slate-700 px-8 py-4 rounded font-bold hover:bg-slate-50 transition-all"
+          >Our Methodology</a
+        >
+      </div>
     </div>
+  </div>
 </section>
 
 <section id="latest" class="container mx-auto px-4 py-20">
-    <div class="flex justify-between items-end mb-12 border-b-2 border-slate-900 pb-4">
-        <h2 class="text-3xl font-extrabold tracking-tight">LATEST TRUTH REPORTS</h2>
-        <a href="{{ "/posts/" | relURL }}" class="text-indigo-600 font-bold hover:underline mb-1">View All Archives &rarr;</a>
-    </div>
-    
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {{ range first 6 (where .Site.RegularPages "Section" "posts") }}
-        <article class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all group border-b-4 hover:border-indigo-600">
-            <div class="p-8">
-                <div class="flex items-center space-x-2 mb-4">
-                    <span class="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400">SKU Verification: PASSED</span>
-                </div>
-                <h3 class="text-2xl font-bold mb-4 group-hover:text-indigo-600 transition-colors">
-                    <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-                </h3>
-                <p class="text-slate-500 text-sm leading-relaxed mb-6">
-                    {{ .Description | default (.Summary | truncate 150) }}
-                </p>
-                <div class="flex justify-between items-center pt-6 border-t border-slate-100">
-                    <span class="text-xs font-bold text-slate-400 uppercase tracking-tighter mono">{{ .Date.Format "Jan 02, 2006" }}</span>
-                    <span class="text-indigo-600 font-black text-sm uppercase">Full Report &rarr;</span>
-                </div>
-            </div>
-        </article>
-        {{ end }}
-    </div>
+  <div
+    class="flex justify-between items-end mb-12 border-b-2 border-slate-900 pb-4"
+  >
+    <h2 class="text-3xl font-extrabold tracking-tight">LATEST TRUTH REPORTS</h2>
+    <a
+      href="{{ '/posts/' | relURL }}"
+      class="text-indigo-600 font-bold hover:underline mb-1"
+      >View All Archives &rarr;</a
+    >
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    {{ range first 6 (where .Site.RegularPages "Section" "posts") }}
+    <article
+      class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all group border-b-4 hover:border-indigo-600"
+    >
+      <div class="p-8">
+        <div class="flex items-center space-x-2 mb-4">
+          <span
+            class="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400"
+            >SKU Verification: PASSED</span
+          >
+        </div>
+        <h3
+          class="text-2xl font-bold mb-4 group-hover:text-indigo-600 transition-colors"
+        >
+          <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        </h3>
+        <p class="text-slate-500 text-sm leading-relaxed mb-6">
+          {{ .Description | default (.Summary | truncate 150) }}
+        </p>
+        <div
+          class="flex justify-between items-center pt-6 border-t border-slate-100"
+        >
+          <span
+            class="text-xs font-bold text-slate-400 uppercase tracking-tighter mono"
+            >{{ .Date.Format "Jan 02, 2006" }}</span
+          >
+          <span class="text-indigo-600 font-black text-sm uppercase"
+            >Full Report &rarr;</span
+          >
+        </div>
+      </div>
+    </article>
+    {{ end }}
+  </div>
 </section>
 {{ end }}

@@ -3,11 +3,13 @@
 This document outlines the strategic direction and development phases for the Laptop Verdict project.
 
 ## Project Overview
+
 For a high-level summary of the project goals and tech stack, see [README.md](README.md).
 
 ---
 
 ## Phase 1: Foundation (Current)
+
 - [x] **Agent Definitions**: Establish core personas for "Anti-Hype" reviewing and Hugo operations.
 - [x] **Site Scaffolding**: Initial Hugo site structure with Tailwind CSS v4 integration.
 - [x] **Documentation**: Baseline `README.md`, `AGENTS.md`, and `TESTING.md` established.
@@ -24,21 +26,25 @@ For a high-level summary of the project goals and tech stack, see [README.md](RE
 - [ ] **Data Sourcing Protocol**: Formalize how agents ingest and weigh technical data from trusted sources (Notebookcheck, PSREF, etc.) to ensure data provenance.
 
 ## Phase 2: Technical Architecture & SEO
+
 - [ ] **Structured Data (JSON-LD)**: Implement Schema.org `Product` and `Review` markup for Google Search snippets.
 - [ ] **Static Search**: Integrate [Pagefind](https://pagefind.app/) for site-wide indexed search.
 - [ ] **Image Pipeline**: Automate WebP/AVIF conversion using Hugo's built-in processing.
 - [ ] **Security & Performance**: Configure CSP headers and implement JetBrains Mono pre-loading.
 
 ## Phase 3: Site Design & Visualization
+
 - [ ] **Dark Mode Integration**: Implementation of "OLED Black" mode using Tailwind's `dark:` modifiers.
 - [ ] **Thermal/Performance Graphing**: Develop SVG-based Hugo shortcodes to render sustained performance graphs directly from frontmatter.
 - [ ] **Comparison Engine**: Create a side-by-side comparison layout for SKU-vs-SKU analysis.
 - [ ] **Mobile-First UX**: Refine navigation and interactive elements for one-handed professional use.
 
 ## Phase 4: Future Automation & Intelligence
+
 - [ ] **Content Pipeline**: Automate the end-to-end flow from research to published page bundle via CI/CD.
 - [ ] **Community Verification Loop**: Integrate live fetching of systemic QC issues from Reddit and manufacturer forums.
 - [ ] **Real-time Price Hooks**: Add lightweight price tracking for major retail SKUs.
 
 ---
-*Last Updated: 2026-02-05*
+
+_Last Updated: 2026-02-05_

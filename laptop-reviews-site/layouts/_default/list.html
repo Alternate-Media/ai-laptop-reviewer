@@ -1,29 +1,46 @@
 {{ define "main" }}
 <div class="bg-slate-50 py-20 min-h-screen">
-    <div class="container mx-auto px-4">
-        <header class="mb-16 border-b-4 border-slate-900 pb-8">
-            <h1 class="text-5xl font-black tracking-tightest uppercase italic">{{ .Title }}</h1>
-            <p class="text-slate-500 mt-4 font-semibold uppercase tracking-widest text-sm">Full Truth Report Archives</p>
-        </header>
+  <div class="container mx-auto px-4">
+    <header class="mb-16 border-b-4 border-slate-900 pb-8">
+      <h1 class="text-5xl font-black tracking-tightest uppercase italic">
+        {{ .Title }}
+      </h1>
+      <p
+        class="text-slate-500 mt-4 font-semibold uppercase tracking-widest text-sm"
+      >
+        Full Truth Report Archives
+      </p>
+    </header>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {{ range .Pages }}
-            <article class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all group border-b-4 hover:border-indigo-600">
-                <div class="p-8">
-                    <h3 class="text-2xl font-bold mb-4 group-hover:text-indigo-600 transition-colors">
-                        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-                    </h3>
-                    <p class="text-slate-500 text-sm leading-relaxed mb-6">
-                        {{ .Description | default (.Summary | truncate 150) }}
-                    </p>
-                    <div class="flex justify-between items-center pt-6 border-t border-slate-100">
-                        <span class="text-xs font-bold text-slate-400 uppercase tracking-tighter mono">{{ .Date.Format "Jan 02, 2006" }}</span>
-                        <span class="text-indigo-600 font-black text-sm uppercase">Read &rarr;</span>
-                    </div>
-                </div>
-            </article>
-            {{ end }}
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {{ range .Pages }}
+      <article
+        class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all group border-b-4 hover:border-indigo-600"
+      >
+        <div class="p-8">
+          <h3
+            class="text-2xl font-bold mb-4 group-hover:text-indigo-600 transition-colors"
+          >
+            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+          </h3>
+          <p class="text-slate-500 text-sm leading-relaxed mb-6">
+            {{ .Description | default (.Summary | truncate 150) }}
+          </p>
+          <div
+            class="flex justify-between items-center pt-6 border-t border-slate-100"
+          >
+            <span
+              class="text-xs font-bold text-slate-400 uppercase tracking-tighter mono"
+              >{{ .Date.Format "Jan 02, 2006" }}</span
+            >
+            <span class="text-indigo-600 font-black text-sm uppercase"
+              >Read &rarr;</span
+            >
+          </div>
         </div>
+      </article>
+      {{ end }}
     </div>
+  </div>
 </div>
 {{ end }}
