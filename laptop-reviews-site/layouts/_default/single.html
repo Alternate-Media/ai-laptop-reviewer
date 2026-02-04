@@ -1,0 +1,11 @@
+{{ define "main" }}
+<article>
+    <header class="mb-4">
+        <h1 class="fw-bolder mb-1">{{ .Title }}</h1>
+        <div class="text-muted fst-italic mb-2">Posted on {{ .Date.Format "Jan 2, 2006" }}</div>
+    </header>
+    <section class="mb-5">
+        {{ .Content }}
+    </section>
+</article>
+{{ end }}

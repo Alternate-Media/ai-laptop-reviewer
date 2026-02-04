@@ -1,6 +1,7 @@
 public/
 resources/
 _gen/
+node_modules/
 assets/js/bundle.js
 assets/js/bundle.js.map
 .DS_Store

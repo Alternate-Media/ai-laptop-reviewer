@@ -1,3 +1,11 @@
 baseURL = 'https://example.org/'
 languageCode = 'en-us'
-title = 'My New Hugo Site'
+title = 'Laptop Reviews - The Anti-Hype Truth'
+
+[module]
+  [[module.mounts]]
+    source = 'assets'
+    target = 'assets'
+  [[module.mounts]]
+    source = 'node_modules/bootstrap/scss'
+    target = 'assets/scss/bootstrap'
