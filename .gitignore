@@ -3,6 +3,10 @@ resources/
 _gen/
 node_modules/
 assets/js/bundle.js
+playwright-report/
+test-results/
+.hugo_build.lock
+server.log
 assets/js/bundle.js.map
 .DS_Store
 .hugo_build.lock
