@@ -4,7 +4,7 @@ Technical, "Anti-Hype" laptop reviews for professionals and creatives.
 
 ## Tech Stack
 - **SSG**: [Hugo](https://gohugo.io/)
-- **CSS**: [Bootstrap 5](https://getbootstrap.com/)
+- **CSS**: [Tailwind CSS v4](https://tailwindcss.com/)
 - **Management**: [mise](https://mise.jdx.dev/)
 
 ## Operations

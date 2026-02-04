@@ -9,7 +9,7 @@ For a high-level summary of the project goals and tech stack, see [README.md](RE
 
 ## Phase 1: Foundation (Current)
 - [x] **Agent Definitions**: Establish core personas for "Anti-Hype" reviewing and Hugo operations.
-- [x] **Site Scaffolding**: Initial Hugo site structure with Bootstrap 5 integration.
+- [x] **Site Scaffolding**: Initial Hugo site structure with Tailwind CSS v4 integration.
 - [x] **Documentation**: Baseline `README.md` and `AGENTS.md` established.
 - [ ] **Data Sourcing Protocol**: Formalize how agents ingest technical data from trusted sources (Notebookcheck, PSREF, etc.).
 
