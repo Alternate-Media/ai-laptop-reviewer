@@ -1,0 +1,22 @@
+Watching for changes in /home/doe/repos/ai-laptop-reviewer/laptop-reviews-site/archetypes, /home/doe/repos/ai-laptop-reviewer/laptop-reviews-site/assets/css, /home/doe/repos/ai-laptop-reviewer/laptop-reviews-site/content, /home/doe/repos/ai-laptop-reviewer/laptop-reviews-site/data, /home/doe/repos/ai-laptop-reviewer/laptop-reviews-site/i18n, /home/doe/repos/ai-laptop-reviewer/laptop-reviews-site/layouts/_default, /home/doe/repos/ai-laptop-reviewer/laptop-reviews-site/package.json, /home/doe/repos/ai-laptop-reviewer/laptop-reviews-site/postcss.config.js, /home/doe/repos/ai-laptop-reviewer/laptop-reviews-site/static
+Watching for config changes in /home/doe/repos/ai-laptop-reviewer/laptop-reviews-site/hugo.toml
+Start building sites … 
+hugo v0.155.2-d8c0dfccf72ab43db2b2bca1483a61c8660021d9+extended linux/amd64 BuildDate=2026-02-02T10:04:51Z VendorInfo=gohugoio
+
+
+                  │ EN 
+──────────────────┼────
+ Pages            │  7 
+ Paginator pages  │  0 
+ Non-page files   │  0 
+ Static files     │  0 
+ Processed images │  0 
+ Aliases          │  0 
+ Cleaned          │  0 
+
+Built in 687 ms
+Environment: "development"
+Serving pages from disk
+Running in Fast Render Mode. For full rebuilds on change: hugo server --disableFastRender
+Web Server is available at http://localhost:1313/ (bind address 0.0.0.0) 
+Press Ctrl+C to stop
