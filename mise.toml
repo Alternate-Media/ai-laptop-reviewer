@@ -16,15 +16,31 @@ description = "Build the Hugo site"
 dir = "laptop-reviews-site"
 run = "hugo --gc --minify"
 
+[tasks."site:deploy"]
+description = "Build and deploy the site to GitHub Pages"
+depends = ["ci"]
+run = [
+  "git add laptop-reviews-site/public -f",
+  "git commit -m 'deploy: update site' --no-verify",
+  "git subtree push --prefix laptop-reviews-site/public origin gh-pages",
+  "git reset --hard HEAD~1",
+  "mise run test:deploy-sanity"
+]
+
 [tasks."site:serve"]
 description = "Run the Hugo development server"
 dir = "laptop-reviews-site"
 run = "hugo server -D"
 
-[tasks."test:ui"]
-description = "Run automated UI tests with Playwright"
-dir = "laptop-reviews-site"
-run = "npx playwright test"
+[tasks."test:deploy-sanity"]
+description = "Verify live deployment on GitHub Pages"
+run = """
+#!/usr/bin/env bash
+LIVE_URL="https://alternate-media.github.io/ai-laptop-reviewer/"
+echo "--- Testing Live Site: $LIVE_URL ---"
+ht -h --check-status GET $LIVE_URL && echo "✓ Live Site Reachable"
+ht -b GET $LIVE_URL | grep -q "Laptop Verdict" && echo "✓ Branding Verified"
+"""
 
 [tasks."test:sanity-plus"]
 description = "Enhanced sanity tests using httpie-go (ht)"
@@ -65,3 +81,8 @@ ht -h GET http://127.0.0.1:1313/non-existent-page/ | grep -q "404" || echo "✓ 
 
 rm temp_report.html
 """
+
+[tasks."test:ui"]
+description = "Run automated UI tests with Playwright"
+dir = "laptop-reviews-site"
+run = "npx playwright test"
