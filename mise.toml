@@ -31,7 +31,7 @@ ht --check-status GET http://127.0.0.1:1313/sitemap.xml | grep -q "<loc>" && ech
 echo "--- 2. Content Standards (Gold Standard) ---"
 REPORT_URL="http://127.0.0.1:1313/posts/gold-standard-review/"
 ht --check-status GET $REPORT_URL > temp_report.html
-grep -q "prose prose-lg" temp_report.html && echo "✓ Tailwind Prose Applied"
+grep -qi "prose" temp_report.html && echo "✓ Tailwind Prose Applied"
 grep -q "The Verdict (TL;DR)" temp_report.html && echo "✓ Section: Verdict Found"
 grep -qi "The Ugly" temp_report.html && echo "✓ Section: The Ugly Found"
 grep -q "Sources" temp_report.html && echo "✓ Section: Sources Found"

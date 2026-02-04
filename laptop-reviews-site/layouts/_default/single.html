@@ -1,11 +1,44 @@
 {{ define "main" }}
-<article class="prose prose-lg max-w-none">
-    <header class="mb-8">
-        <h1 class="text-4xl font-extrabold text-gray-900 mb-2">{{ .Title }}</h1>
-        <div class="text-gray-500 italic">Posted on {{ .Date.Format "Jan 2, 2006" }}</div>
+<article class="bg-white min-h-screen">
+    {{/* Article Header */}}
+    <header class="bg-slate-900 text-white py-20 px-4">
+        <div class="container mx-auto max-w-4xl">
+            <div class="flex items-center space-x-2 mb-6">
+                <span class="bg-indigo-600 text-[10px] font-black px-2 py-0.5 rounded tracking-widest uppercase">Verified Truth Report</span>
+                <span class="text-slate-400 text-xs mono uppercase tracking-tighter">{{ .Date.Format "Jan 02, 2006" }}</span>
+            </div>
+            <h1 class="text-5xl md:text-6xl font-extrabold tracking-tight mb-6 leading-tight">
+                {{ .Title }}
+            </h1>
+            {{ if .Params.description }}
+            <p class="text-xl text-slate-300 italic border-l-4 border-indigo-500 pl-6 py-2">
+                {{ .Params.description }}
+            </p>
+            {{ end }}
+        </div>
     </header>
-    <section class="text-gray-800 leading-relaxed">
-        {{ .Content }}
-    </section>
+
+    {{/* Main Content Area */}}
+    <div class="container mx-auto max-w-4xl px-4 py-16">
+        <div class="prose prose-slate prose-lg max-w-none 
+                    prose-headings:font-black prose-headings:tracking-tight prose-headings:uppercase
+                    prose-h1:text-indigo-600 prose-h2:border-b-2 prose-h2:border-slate-900 prose-h2:pb-2
+                    prose-blockquote:border-indigo-500 prose-blockquote:bg-slate-50 prose-blockquote:py-1
+                    prose-strong:text-indigo-700">
+            {{ .Content }}
+        </div>
+
+        {{/* Share / Footer Section of Content */}}
+        <div class="mt-20 pt-10 border-t-2 border-slate-900">
+            <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+                <div class="text-xs font-bold uppercase tracking-[0.3em] text-slate-400">
+                    End of Verified Truth Report
+                </div>
+                <div class="flex space-x-4">
+                    <a href="{{ "/posts/" | relURL }}" class="bg-slate-100 px-6 py-3 rounded text-sm font-bold hover:bg-slate-200 transition-colors uppercase">Back to Archives</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </article>
 {{ end }}
