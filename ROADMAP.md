@@ -12,26 +12,27 @@ For a high-level summary of the project goals and tech stack, see [README.md](RE
 - [x] **Site Scaffolding**: Initial Hugo site structure with Tailwind CSS v4 integration.
 - [x] **Documentation**: Baseline `README.md`, `AGENTS.md`, and `TESTING.md` established.
 - [x] **Automated Sanity Testing**: Implemented `test:sanity-plus` suite using `httpie-go` and `mise` tasks.
-- [ ] **Data Sourcing Protocol**: Formalize how agents ingest technical data from trusted sources (Notebookcheck, PSREF, etc.).
+- [ ] **Technical Archetype**: Create a specialized Hugo archetype (`archetypes/review.md`) with strictly typed frontmatter for TDP, PL1/PL2, Panel PWM, and SKU verification status.
+- [ ] **Design Tokens & UI Kit**: Formalize the Tailwind v4 `@theme` variables for the "Truth Factory" aesthetic and build reusable partials for "The Verdict" and "Spec Sheet" components.
+- [ ] **Agent Orchestration Protocol**: Define the execution flow where the `hugo-operations` agent calls the `laptop-reviewer` agent, including error-handling for insufficient research data.
+- [ ] **Data Sourcing Protocol**: Formalize how agents ingest and weigh technical data from trusted sources (Notebookcheck, PSREF, etc.) to ensure data provenance.
 
-## Phase 2: Technical Architecture & Performance
-- [ ] **Structured Data (JSON-LD)**: Implement Schema.org `Product` and `Review` markup to ensure "Verdict" ratings appear in Google Search snippets.
-- [ ] **Static Search**: Integrate [Pagefind](https://pagefind.app/) for lightning-fast, zero-dependency site-wide search.
-- [ ] **Image Pipeline**: Automate WebP/AVIF conversion and responsive srcsets using Hugo's image processing.
-- [ ] **Security Headers**: Configure CSP, HSTS, and X-Frame-Options in the deployment configuration.
-- [ ] **Asset Optimization**: Implement Critical CSS and pre-loading for key typography (JetBrains Mono).
+## Phase 2: Technical Architecture & SEO
+- [ ] **Structured Data (JSON-LD)**: Implement Schema.org `Product` and `Review` markup for Google Search snippets.
+- [ ] **Static Search**: Integrate [Pagefind](https://pagefind.app/) for site-wide indexed search.
+- [ ] **Image Pipeline**: Automate WebP/AVIF conversion using Hugo's built-in processing.
+- [ ] **Security & Performance**: Configure CSP headers and implement JetBrains Mono pre-loading.
 
-## Phase 3: Site Design & UX Refinement
-- [ ] **Dark Mode Integration**: Implement a "Dim" or "OLED Black" mode toggle using Tailwind's `dark:` modifiers.
-- [ ] **Data Visualization**: Integrate a lightweight charting library (e.g., Chart.js or SVG-based templates) to render sustained performance/thermal graphs directly from frontmatter data.
-- [ ] **Comparison Tool**: Create a side-by-side comparison layout for SKU-vs-SKU analysis.
-- [ ] **Micro-Interactions**: Add subtle hover states and progress indicators for long-form "Truth Reports".
-- [ ] **Mobile-First Navigation**: Refine the header for better one-handed usability on mobile devices.
+## Phase 3: Site Design & Visualization
+- [ ] **Dark Mode Integration**: Implementation of "OLED Black" mode using Tailwind's `dark:` modifiers.
+- [ ] **Thermal/Performance Graphing**: Develop SVG-based Hugo shortcodes to render sustained performance graphs directly from frontmatter.
+- [ ] **Comparison Engine**: Create a side-by-side comparison layout for SKU-vs-SKU analysis.
+- [ ] **Mobile-First UX**: Refine navigation and interactive elements for one-handed professional use.
 
-## Phase 4: Content Pipeline & Intelligence
-- [ ] **Automated Content Ingestion**: Create a CLI tool to pipe agent outputs directly into Hugo page bundles.
-- [ ] **Community Verification Loop**: Integrate a system to fetch and display the latest systemic QC issues from Reddit/Forums.
-- [ ] **Price Tracking**: Add a lightweight hook to display real-world pricing from major retailers.
+## Phase 4: Future Automation & Intelligence
+- [ ] **Content Pipeline**: Automate the end-to-end flow from research to published page bundle via CI/CD.
+- [ ] **Community Verification Loop**: Integrate live fetching of systemic QC issues from Reddit and manufacturer forums.
+- [ ] **Real-time Price Hooks**: Add lightweight price tracking for major retail SKUs.
 
 ---
 *Last Updated: 2026-02-05*
