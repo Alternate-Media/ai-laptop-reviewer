@@ -6,6 +6,3 @@ title = 'Laptop Reviews - The Anti-Hype Truth'
   [[module.mounts]]
     source = 'assets'
     target = 'assets'
-  [[module.mounts]]
-    source = 'node_modules/bootstrap/scss'
-    target = 'assets/scss/bootstrap'

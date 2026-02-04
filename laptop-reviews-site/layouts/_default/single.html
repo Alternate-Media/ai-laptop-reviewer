@@ -1,10 +1,10 @@
 {{ define "main" }}
-<article>
-    <header class="mb-4">
-        <h1 class="fw-bolder mb-1">{{ .Title }}</h1>
-        <div class="text-muted fst-italic mb-2">Posted on {{ .Date.Format "Jan 2, 2006" }}</div>
+<article class="prose prose-lg max-w-none">
+    <header class="mb-8">
+        <h1 class="text-4xl font-extrabold text-gray-900 mb-2">{{ .Title }}</h1>
+        <div class="text-gray-500 italic">Posted on {{ .Date.Format "Jan 2, 2006" }}</div>
     </header>
-    <section class="mb-5">
+    <section class="text-gray-800 leading-relaxed">
         {{ .Content }}
     </section>
 </article>
