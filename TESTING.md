@@ -49,6 +49,6 @@ jobs:
         run: npm run lint # To be defined
       - name: Build
         run: cd laptop-reviews-site && hugo --gc --minify
-      - name: Link Check
-        run: # htmltest or lychee command
+      - name: Sanity Plus Check
+        run: mise run test:sanity-plus
 ```

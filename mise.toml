@@ -13,8 +13,8 @@ description = "Run the Hugo development server"
 dir = "laptop-reviews-site"
 run = "hugo server -D"
 
-[tasks."test:coverage"]
-description = "Comprehensive coverage tests using httpie-go (ht)"
+[tasks."test:sanity-plus"]
+description = "Enhanced sanity tests using httpie-go (ht)"
 depends = ["site:build"]
 run = """
 #!/usr/bin/env bash
