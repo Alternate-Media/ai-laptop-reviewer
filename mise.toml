@@ -3,6 +3,14 @@ hugo-extended = "latest"
 node = "22"
 httpie-go = "latest"
 
+[tasks.ci]
+description = "Emulate full CI pipeline locally"
+run = [
+  "mise run site:build",
+  "mise run test:sanity-plus",
+  "mise run test:ui"
+]
+
 [tasks."site:build"]
 description = "Build the Hugo site"
 dir = "laptop-reviews-site"
@@ -30,30 +38,30 @@ trap "kill $PID" EXIT
 sleep 3
 
 echo "--- 1. Discovery & SEO ---"
-ht --check-status GET http://127.0.0.1:1313/index.xml | grep -q "<link>" && echo "✓ RSS Feed Valid"
-ht --check-status GET http://127.0.0.1:1313/sitemap.xml | grep -q "<loc>" && echo "✓ Sitemap Valid"
+ht -h --check-status GET http://127.0.0.1:1313/index.xml | grep -q "<link>" && echo "✓ RSS Feed Valid"
+ht -h --check-status GET http://127.0.0.1:1313/sitemap.xml | grep -q "<loc>" && echo "✓ Sitemap Valid"
 
 echo "--- 2. Content Standards (Gold Standard) ---"
 REPORT_URL="http://127.0.0.1:1313/posts/gold-standard-review/"
-ht --check-status GET $REPORT_URL > temp_report.html
+ht -b GET $REPORT_URL > temp_report.html
 grep -qi "prose" temp_report.html && echo "✓ Tailwind Prose Applied"
 grep -q "The Verdict (TL;DR)" temp_report.html && echo "✓ Section: Verdict Found"
 grep -qi "The Ugly" temp_report.html && echo "✓ Section: The Ugly Found"
 grep -q "Sources" temp_report.html && echo "✓ Section: Sources Found"
 
 echo "--- 3. Navigation Integrity ---"
-ht --check-status GET $REPORT_URL | grep -q "Home" && echo "✓ Back-to-home Link Found"
-ht --check-status GET http://127.0.0.1:1313/pages/about/ && echo "✓ About Page Active"
-ht --check-status GET http://127.0.0.1:1313/pages/methodology/ && echo "✓ Methodology Page Active"
-ht --check-status GET http://127.0.0.1:1313/pages/privacy/ && echo "✓ Privacy Page Active"
-ht --check-status GET http://127.0.0.1:1313/pages/terms/ && echo "✓ Terms Page Active"
+ht -b GET $REPORT_URL | grep -q "Home" && echo "✓ Back-to-home Link Found"
+ht -h --check-status GET http://127.0.0.1:1313/pages/about/ > /dev/null && echo "✓ About Page Active"
+ht -h --check-status GET http://127.0.0.1:1313/pages/methodology/ > /dev/null && echo "✓ Methodology Page Active"
+ht -h --check-status GET http://127.0.0.1:1313/pages/privacy/ > /dev/null && echo "✓ Privacy Page Active"
+ht -h --check-status GET http://127.0.0.1:1313/pages/terms/ > /dev/null && echo "✓ Terms Page Active"
 
 echo "--- 4. Optimization ---"
-ht GET http://127.0.0.1:1313/ | grep -q "css/main.min" && echo "✓ Fingerprinted CSS Found"
+ht -b GET http://127.0.0.1:1313/ | grep -q "css/main.min" && echo "✓ Fingerprinted CSS Found"
 
 echo "--- 5. Error Handling ---"
 # Verify 404 status (Hugo server returns 404 for missing files)
-ht GET http://127.0.0.1:1313/non-existent-page/ | grep -q "404" || echo "✓ 404 Logic Verified"
+ht -h GET http://127.0.0.1:1313/non-existent-page/ | grep -q "404" || echo "✓ 404 Logic Verified"
 
 rm temp_report.html
 """
