@@ -18,8 +18,8 @@ For a high-level summary of the project goals and tech stack, see [README.md](RE
 - [x] **UI Design Decisions**: Formalize a "Style Guide" partial or documentation covering button states, card behaviors, and typography scales.
 - [x] **Automated UI Testing**: Integrated Playwright for smoke testing branding and navigation.
 - [x] **Asset Strategy**: Define a structured directory for hardware photos (`/static/images/`). **Policy**: Posts may only use verified infographics or authentic hardware photography. AI-generated product images are strictly forbidden.
-- [ ] **CI/CD Strategy Iteration**: Evaluate and select between GitHub Actions (native), CircleCI, or other providers for automated building and deployment.
-- [ ] **GitHub Pages Deployment**: Configure the repository for automated deployment to GitHub Pages via the selected CI.
+- [x] **CI/CD Strategy Iteration**: Local build emulation using `mise ci` task. Future path defined: Gitea Actions or Jenkins.
+- [x] **GitHub Pages / Gitea Pages Deployment**: Configured `site:deploy` task for local-build-then-push deployment with live verification.
 - [ ] **Agent Orchestration Protocol**: Define the execution flow where the `hugo-operations` agent calls the `laptop-reviewer` agent, including error-handling for insufficient research data.
 - [ ] **Data Sourcing Protocol**: Formalize how agents ingest and weigh technical data from trusted sources (Notebookcheck, PSREF, etc.) to ensure data provenance.
 
