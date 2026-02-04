@@ -15,17 +15,14 @@ run = "hugo --gc --minify"
 description = "Build and deploy the site to GitHub Pages"
 depends = ["ci"]
 run = [
-  "git add laptop-reviews-site/public -f",
-  "git commit -m 'deploy: update site' --no-verify",
-  "git subtree push --prefix laptop-reviews-site/public origin gh-pages",
-  "git reset --hard HEAD~1",
+  "cd laptop-reviews-site && npx gh-pages -d public -b gh-pages -m 'deploy: update site [skip ci]'",
   "mise run test:deploy-sanity"
 ]
 
 [tasks."site:serve"]
 description = "Run the Hugo development server"
 dir = "laptop-reviews-site"
-run = "hugo server -D"
+run = "hugo server -D -b http://localhost:1313/"
 
 [tasks."test:deploy-sanity"]
 description = "Verify live deployment on GitHub Pages"
@@ -94,7 +91,7 @@ depends = ["site:build"]
 run = """
 #!/usr/bin/env bash
 cd laptop-reviews-site
-hugo server -D -p 1313 --bind 127.0.0.1 &
+hugo server -D -p 1313 --bind 127.0.0.1 -b http://localhost:1313/ &
 PID=$!
 trap "kill $PID" EXIT
 sleep 3

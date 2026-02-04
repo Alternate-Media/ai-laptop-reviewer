@@ -7,6 +7,7 @@
       {{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title
       }}{{ end }}
     </title>
+    <link rel="shortcut icon" href="{{ "/favicon.ico" | relURL }}" />
     <meta
       name="description"
       content="{{ with .Description }}{{ . }}{{ else }}{{ if .IsPage }}{{ .Summary }}{{ else }}{{ .Site.Title }}{{ end }}{{ end }}"
@@ -60,17 +61,17 @@
           >
           <a
             class="hover:text-indigo-600 transition-colors"
-            href="{{ '/posts/' | relURL }}"
+            href="{{ "/posts/" | relURL }}"
             >Reviews</a
           >
           <a
             class="hover:text-indigo-600 transition-colors"
-            href="{{ '/pages/methodology/' | relURL }}"
+            href="{{ "/pages/methodology/" | relURL }}"
             >Methodology</a
           >
           <a
             class="hover:text-indigo-600 transition-colors"
-            href="{{ '/pages/about/' | relURL }}"
+            href="{{ "/pages/about/" | relURL }}"
             >About</a
           >
         </div>
@@ -123,21 +124,21 @@
           <ul class="space-y-2">
             <li>
               <a
-                href="{{ '/pages/methodology/' | relURL }}"
+                href="{{ "/pages/methodology/" | relURL }}"
                 class="hover:text-white transition-colors"
                 >Methodology</a
               >
             </li>
             <li>
               <a
-                href="{{ '/pages/about/' | relURL }}"
+                href="{{ "/pages/about/" | relURL }}"
                 class="hover:text-white transition-colors"
                 >About Us</a
               >
             </li>
             <li>
               <a
-                href="{{ '/roadmap/' | relURL }}"
+                href="{{ "/roadmap/" | relURL }}"
                 class="hover:text-white transition-colors"
                 >Roadmap</a
               >
@@ -153,14 +154,14 @@
           <ul class="space-y-2">
             <li>
               <a
-                href="{{ '/pages/privacy/' | relURL }}"
+                href="{{ "/pages/privacy/" | relURL }}"
                 class="hover:text-white transition-colors"
                 >Privacy Policy</a
               >
             </li>
             <li>
               <a
-                href="{{ '/pages/terms/' | relURL }}"
+                href="{{ "/pages/terms/" | relURL }}"
                 class="hover:text-white transition-colors"
                 >Terms of Service</a
               >
