@@ -18,3 +18,4 @@
 - **Read-Only Operations**: Commands that only read or list state (e.g., `ls`, `cat`, `grep`, `delta`, `git status`, `read_file`) do not require user approval.
 - **Approval Mandate**: NO destructive file operations (moves, deletes, or overwrites of existing non-tmp files) are allowed without explicit user confirmation.
 - **Roadmap Synchronization**: Every feature implementation or significant technical change MUST include a corresponding update to `ROADMAP.md` in the same commit.
+- **Editorial Standards**: All editorial policies and technical investigation standards must be tracked in `METHODOLOGY.md`. Updates to this file must be synchronized with `laptop-reviews-site/content/pages/methodology.md`.

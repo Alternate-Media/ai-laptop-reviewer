@@ -8,4 +8,4 @@ Technical, "Anti-Hype" laptop reviews for professionals and creatives.
 - **Management**: [mise](https://mise.jdx.dev/)
 
 ## Operations
-This site uses the **Hugo Operations** agent for content lifecycle and maintenance.
+This site uses the **Hugo Operations** agent for content lifecycle and maintenance. Editorial policies and investigation standards are tracked in [METHODOLOGY.md](METHODOLOGY.md), which is used to generate the site's [Methodology page](https://example.org/pages/methodology/).
