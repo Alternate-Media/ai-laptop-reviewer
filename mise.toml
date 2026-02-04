@@ -36,10 +36,32 @@ run = "hugo server -D"
 description = "Verify live deployment on GitHub Pages"
 run = """
 #!/usr/bin/env bash
-LIVE_URL="https://alternate-media.github.io/ai-laptop-reviewer/"
+LIVE_URL="https://alternate-media.github.io/ai-laptop-reviewer"
 echo "--- Testing Live Site: $LIVE_URL ---"
-ht -h --check-status GET $LIVE_URL && echo "✓ Live Site Reachable"
-ht -b GET $LIVE_URL | grep -q "Laptop Verdict" && echo "✓ Branding Verified"
+
+echo "--- 1. Discovery & SEO ---"
+ht -h --check-status GET "$LIVE_URL/index.xml" | grep -i "content-type:.*xml" && echo "✓ RSS Feed Header Valid"
+ht -h --check-status GET "$LIVE_URL/sitemap.xml" | grep -i "content-type:.*xml" && echo "✓ Sitemap Header Valid"
+
+echo "--- 2. Content Standards (Gold Standard) ---"
+REPORT_URL="$LIVE_URL/posts/gold-standard-review/"
+ht -b GET "$REPORT_URL" > temp_report_live.html
+grep -qi "prose" temp_report_live.html && echo "✓ Tailwind Prose Applied"
+grep -q "The Verdict (TL;DR)" temp_report_live.html && echo "✓ Section: Verdict Found"
+grep -qi "The Ugly" temp_report_live.html && echo "✓ Section: The Ugly Found"
+grep -q "Sources" temp_report_live.html && echo "✓ Section: Sources Found"
+
+echo "--- 3. Navigation Integrity ---"
+ht -b GET "$REPORT_URL" | grep -q "Home" && echo "✓ Back-to-home Link Found"
+ht -h --check-status GET "$LIVE_URL/pages/about/" > /dev/null && echo "✓ About Page Active"
+ht -h --check-status GET "$LIVE_URL/pages/methodology/" > /dev/null && echo "✓ Methodology Page Active"
+ht -h --check-status GET "$LIVE_URL/pages/privacy/" > /dev/null && echo "✓ Privacy Page Active"
+ht -h --check-status GET "$LIVE_URL/pages/terms/" > /dev/null && echo "✓ Terms Page Active"
+
+echo "--- 4. Optimization ---"
+ht -b GET "$LIVE_URL/" | grep -q "css/main.min" && echo "✓ Fingerprinted CSS Found"
+
+rm temp_report_live.html
 """
 
 [tasks."test:sanity-plus"]
